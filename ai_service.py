@@ -7,9 +7,9 @@ logger = logging.getLogger(__name__)
 
 class AIService:
     def __init__(self):
-        self.hf_api_key = os.environ.get("HUGGING_FACE_API_KEY")
+        self.hf_api_key = os.environ.get("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")
         # Use a reliable and available model for government services
-        self.hf_api_url = "https://api-inference.huggingface.co/models/facebook/blenderbot-400M-distill"
+        self.hf_api_url = "https://api-inference.huggingface.co/models/ibm-granite/granite-3.3-8b-instruct"
         
     def get_ai_response(self, question):
         """Get AI response from Hugging Face API with fallback to rule-based responses"""
