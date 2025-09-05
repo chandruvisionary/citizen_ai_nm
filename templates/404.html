@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Page Not Found - CitizenAI{% endblock %}
+
+{% block content %}
+<section style="padding: 6rem 0; text-align: center;">
+    <div class="container">
+        <div class="card" style="max-width: 600px; margin: 0 auto;">
+            <i class="fas fa-exclamation-triangle" style="font-size: 4rem; color: #f59e0b; margin-bottom: 2rem;"></i>
+            <h1 style="font-size: 3rem; margin-bottom: 1rem; color: #1e293b;">404</h1>
+            <h2 style="margin-bottom: 1rem;">Page Not Found</h2>
+            <p style="color: #64748b; margin-bottom: 2rem;">
+                Sorry, the page you're looking for doesn't exist. It might have been moved, deleted, or you entered the wrong URL.
+            </p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="{{ url_for('index') }}" class="btn btn-primary">Go Home</a>
+                <a href="{{ url_for('chat') }}" class="btn btn-secondary">Start Chat</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

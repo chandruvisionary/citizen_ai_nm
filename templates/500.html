@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Server Error - CitizenAI{% endblock %}
+
+{% block content %}
+<section style="padding: 6rem 0; text-align: center;">
+    <div class="container">
+        <div class="card" style="max-width: 600px; margin: 0 auto;">
+            <i class="fas fa-server" style="font-size: 4rem; color: #ef4444; margin-bottom: 2rem;"></i>
+            <h1 style="font-size: 3rem; margin-bottom: 1rem; color: #1e293b;">500</h1>
+            <h2 style="margin-bottom: 1rem;">Internal Server Error</h2>
+            <p style="color: #64748b; margin-bottom: 2rem;">
+                Oops! Something went wrong on our server. Our team has been notified and is working to fix the issue.
+            </p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="{{ url_for('index') }}" class="btn btn-primary">Go Home</a>
+                <a href="javascript:history.back()" class="btn btn-secondary">Go Back</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
