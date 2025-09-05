@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <h1>Welcome to <span class="highlight">CitizenAI</span></h1>
+        <p>Your AI-powered assistant for government services and citizen queries. Get instant answers, provide feedback, and help improve public services.</p>
+        
+        <div class="hero-buttons">
+            <a href="{{ url_for('signup') }}" class="btn btn-primary">Get Started Free</a>
+            <a href="{{ url_for('about') }}" class="btn btn-secondary">Learn More</a>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="features">
+    <div class="container">
+        <div class="features-grid">
+            <div class="card feature-card fade-in-up">
+                <i class="fas fa-robot icon" style="color: #4F7CFF;"></i>
+                <h3>AI-Powered Chat</h3>
+                <p>Get instant answers to your government-related questions using advanced Gemini AI technology.</p>
+            </div>
+            
+            <div class="card feature-card fade-in-up">
+                <i class="fas fa-chart-pie icon" style="color: #10b981;"></i>
+                <h3>Sentiment Analysis</h3>
+                <p>Your feedback is analyzed to help improve government services and citizen satisfaction.</p>
+            </div>
+            
+            <div class="card feature-card fade-in-up">
+                <i class="fas fa-chart-line icon" style="color: #f59e0b;"></i>
+                <h3>Dashboard Insights</h3>
+                <p>View analytics and insights about citizen feedback and service improvements.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta">
+    <div class="container">
+        <div class="card">
+            <h2>Ready to Get Started?</h2>
+            <p>Join thousands of citizens already using CitizenAI to get better government services.</p>
+            <a href="{{ url_for('signup') }}" class="btn btn-primary">Create Your Account Now</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

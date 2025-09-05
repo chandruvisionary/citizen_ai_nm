@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}About CitizenAI{% endblock %}
+
+{% block content %}
+<section style="padding: 4rem 0;">
+    <div class="container">
+        <div class="card" style="max-width: 800px; margin: 0 auto;">
+            <h1>About CitizenAI</h1>
+            
+            <p style="font-size: 1.1rem; margin: 2rem 0;">
+                CitizenAI is an AI-powered chatbot designed to help citizens get quick responses to government-related 
+                queries. The platform also analyzes sentiment from user feedback to better understand public opinion.
+            </p>
+            
+            <p style="margin: 1.5rem 0;">
+                Built with Flask, MongoDB, Hugging Face LLMs, and Tailwind CSS, CitizenAI enables transparent 
+                communication between governments and citizens using cutting-edge natural language technology.
+            </p>
+            
+            <h3 style="margin: 2rem 0 1rem 0;">Key Features</h3>
+            <ul style="line-height: 1.8; margin-left: 2rem;">
+                <li><strong>AI-Powered Responses:</strong> Get instant answers to government service questions using advanced language models</li>
+                <li><strong>Sentiment Analysis:</strong> Your feedback is analyzed to help improve public services</li>
+                <li><strong>Dashboard Analytics:</strong> View insights and trends from citizen interactions</li>
+                <li><strong>Secure Platform:</strong> Built with modern security practices and data protection</li>
+                <li><strong>Government Services Coverage:</strong> Information about licenses, voting, taxes, benefits, and more</li>
+            </ul>
+            
+            <h3 style="margin: 2rem 0 1rem 0;">Technology Stack</h3>
+            <ul style="line-height: 1.8; margin-left: 2rem;">
+                <li><strong>Backend:</strong> Flask web framework with SQLAlchemy</li>
+                <li><strong>AI Integration:</strong> Hugging Face transformers and language models</li>
+                <li><strong>Analytics:</strong> TextBlob for sentiment analysis</li>
+                <li><strong>Database:</strong> PostgreSQL for production, SQLite for development</li>
+                <li><strong>Frontend:</strong> Modern CSS with beautiful gradient backgrounds</li>
+            </ul>
+            
+            <h3 style="margin: 2rem 0 1rem 0;">Getting Started</h3>
+            <p style="margin: 1.5rem 0;">
+                Ready to get better government services? <a href="{{ url_for('signup') }}">Create your account</a> 
+                and start asking questions right away. Our AI assistant is trained to help with:
+            </p>
+            
+            <ul style="line-height: 1.8; margin-left: 2rem;">
+                <li>Driver's licenses and vehicle registration</li>
+                <li>Voting registration and election information</li>
+                <li>Tax filing and payment assistance</li>
+                <li>Social Security and Medicare benefits</li>
+                <li>Business licenses and permits</li>
+                <li>Legal aid and court procedures</li>
+            </ul>
+        </div>
+    </div>
+</section>
+{% endblock %}

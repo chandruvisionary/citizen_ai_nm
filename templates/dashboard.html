@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block title %}Feedback Dashboard - CitizenAI{% endblock %}
+
+{% block content %}
+<!-- Feedback Statistics -->
+<section style="padding: 3rem 0;">
+    <div class="container">
+        <h1 class="text-center mb-3" style="font-size: 2.5rem; font-weight: 700; color: #0f172a; margin-bottom: 3rem;">Feedback Dashboard</h1>
+        
+        <!-- Stats Cards -->
+        <div class="dashboard-stats">
+            <div class="card stat-card positive">
+                <h3>{{ feedback_stats.positive }}</h3>
+                <p>Positive</p>
+            </div>
+            <div class="card stat-card neutral">
+                <h3>{{ feedback_stats.neutral }}</h3>
+                <p>Neutral</p>
+            </div>
+            <div class="card stat-card negative">
+                <h3>{{ feedback_stats.negative }}</h3>
+                <p>Negative</p>
+            </div>
+            <div class="card stat-card total">
+                <h3>{{ feedback_stats.positive + feedback_stats.neutral + feedback_stats.negative }}</h3>
+                <p>Total Feedback</p>
+            </div>
+        </div>
+        
+        <!-- Chart -->
+        {% if feedback_stats.positive + feedback_stats.neutral + feedback_stats.negative > 0 %}
+        <div class="card chart-container">
+            <h3>Sentiment Distribution</h3>
+            <div class="chart-wrapper">
+                <canvas id="sentimentChart"></canvas>
+            </div>
+        </div>
+        {% endif %}
+        
+        <!-- Recent Feedback -->
+        {% if recent_feedback %}
+        <div class="card recent-feedback">
+            <h3>Recent Feedback</h3>
+            {% for feedback, chat_session in recent_feedback %}
+            <div class="feedback-item {{ feedback.sentiment }}">
+                <div class="feedback-meta">{{ feedback.sentiment.title() }} • {{ feedback.created_at.strftime('%Y-%m-%d %H:%M') }}</div>
+                <div class="feedback-question"><strong>Q:</strong> {{ chat_session.question }}</div>
+                <div class="feedback-text"><strong>Feedback:</strong> {{ feedback.feedback_text }}</div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+{% if feedback_stats.positive + feedback_stats.neutral + feedback_stats.negative > 0 %}
+<script>
+// Sentiment Distribution Chart
+const ctx = document.getElementById('sentimentChart').getContext('2d');
+new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+        labels: ['Positive', 'Neutral', 'Negative'],
+        datasets: [{
+            data: [{{ feedback_stats.positive }}, {{ feedback_stats.neutral }}, {{ feedback_stats.negative }}],
+            backgroundColor: ['#10b981', '#f59e0b', '#ef4444'],
+            borderWidth: 0
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        plugins: {
+            legend: {
+                position: 'bottom',
+                labels: {
+                    padding: 20,
+                    usePointStyle: true
+                }
+            }
+        }
+    }
+});
+</script>
+{% endif %}
+{% endblock %}

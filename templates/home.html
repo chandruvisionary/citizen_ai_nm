@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+
+{% block title %}Home - CitizenAI{% endblock %}
+
+{% block content %}
+<!-- Home Header -->
+<section class="dashboard-header">
+    <div class="container">
+        <h1>Welcome back, {{ current_user.full_name }}! <i class="fas fa-hand-wave" style="color: #f59e0b;"></i></h1>
+        <p>Your AI-powered assistant for government services and citizen queries is ready to help.</p>
+    </div>
+</section>
+
+<!-- Action Cards -->
+<section style="padding: 2rem 0;">
+    <div class="container">
+        <div class="features-grid">
+            <div class="card feature-card">
+                <i class="fas fa-comments icon" style="color: #4F7CFF;"></i>
+                <h3>Start Chatting</h3>
+                <p>Ask questions and get instant AI-powered responses about government services.</p>
+                <a href="{{ url_for('chat') }}" class="btn btn-primary">Start Chat</a>
+            </div>
+            
+            <div class="card feature-card">
+                <i class="fas fa-chart-pie icon" style="color: #10b981;"></i>
+                <h3>View Dashboard</h3>
+                <p>Check analytics and insights from citizen feedback and interactions.</p>
+                <a href="{{ url_for('dashboard') }}" class="btn btn-secondary">View Dashboard</a>
+            </div>
+            
+            <div class="card feature-card">
+                <i class="fas fa-info-circle icon" style="color: #f59e0b;"></i>
+                <h3>Learn More</h3>
+                <p>Discover how CitizenAI works and how it can help improve public services.</p>
+                <a href="{{ url_for('about') }}" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Getting Started -->
+<section style="padding: 2rem 0;">
+    <div class="container">
+        <div class="card">
+            <h2>Getting Started</h2>
+            <div style="margin-top: 2rem;">
+                <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
+                    <div style="background: #4F7CFF; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 1rem; font-weight: bold;">1</div>
+                    <div>
+                        <h4>Ask Questions</h4>
+                        <p style="margin: 0; color: #64748b;">Use the chat feature to ask any government-related questions.</p>
+                    </div>
+                </div>
+                
+                <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
+                    <div style="background: #10b981; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 1rem; font-weight: bold;">2</div>
+                    <div>
+                        <h4>Provide Feedback</h4>
+                        <p style="margin: 0; color: #64748b;">Share your thoughts to help improve government services.</p>
+                    </div>
+                </div>
+                
+                <div style="display: flex; align-items: center;">
+                    <div style="background: #f59e0b; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 1rem; font-weight: bold;">3</div>
+                    <div>
+                        <h4>View Insights</h4>
+                        <p style="margin: 0; color: #64748b;">Check the dashboard for community feedback trends.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Quick Services -->
+<section style="padding: 2rem 0;">
+    <div class="container">
+        <h2 class="text-center mb-3">Popular Government Services</h2>
+        <div class="features-grid">
+            <div class="card feature-card">
+                <i class="fas fa-id-card icon" style="color: #6366f1;"></i>
+                <h3>Driver's License</h3>
+                <p>Get help with license renewals, applications, and requirements.</p>
+            </div>
+            
+            <div class="card feature-card">
+                <i class="fas fa-vote-yea icon" style="color: #059669;"></i>
+                <h3>Voting Information</h3>
+                <p>Learn about voter registration, polling locations, and elections.</p>
+            </div>
+            
+            <div class="card feature-card">
+                <i class="fas fa-receipt icon" style="color: #dc2626;"></i>
+                <h3>Tax Services</h3>
+                <p>Find information about filing taxes, refunds, and payment plans.</p>
+            </div>
+            
+            <div class="card feature-card">
+                <i class="fas fa-hands-helping icon" style="color: #7c2d12;"></i>
+                <h3>Government Benefits</h3>
+                <p>Learn about Social Security, Medicare, SNAP, and other programs.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}AI Assistant Chat - CitizenAI{% endblock %}
+
+{% block content %}
+<section class="chat-container" style="padding: 2rem 0;">
+    <div class="card">
+        <h2>AI Assistant Chat</h2>
+        <p class="text-muted">Ask your question:</p>
+        
+        <!-- Question Form -->
+        <form method="POST">
+            <div class="form-group">
+                <textarea name="question" class="form-control" 
+                         placeholder="Type your government-related question here..." 
+                         required></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">
+                <i class="fas fa-paper-plane"></i> Ask AI Assistant
+            </button>
+        </form>
+        
+        <!-- AI Response -->
+        {% if last_response %}
+        <div class="chat-response">
+            <h4><i class="fas fa-robot"></i> AI Response:</h4>
+            <p>{{ last_response }}</p>
+        </div>
+        
+        <!-- Feedback Form -->
+        <div class="feedback-section">
+            <h4>How was this response?</h4>
+            <form method="POST">
+                <input type="hidden" name="chat_session_id" value="{{ last_chat_id }}">
+                
+                <div class="form-group">
+                    <textarea name="feedback" class="form-control" 
+                             placeholder="Please share your feedback about this response..." 
+                             required></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-success">
+                    <i class="fas fa-thumbs-up"></i> Submit Feedback
+                </button>
+            </form>
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}
